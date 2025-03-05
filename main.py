@@ -22,5 +22,12 @@ def upload_image(image_path:str)->str:
     """
     with open(image_path,"rb") as image:
         response = client.files.create(file=image,purpose="vision")
-        return response["id"]
-    
+        return response.id
+
+def create_thread():
+    """
+        Cria uma nova thread no OpenAI e retorna o ID da thread.
+    Returns:
+        str: O ID da thread.
+    """
+    return client.beta.threads.create().id
