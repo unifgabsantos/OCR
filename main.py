@@ -31,3 +31,4 @@ def create_thread():
         str: O ID da thread.
     """
     return client.beta.threads.create().id
+
