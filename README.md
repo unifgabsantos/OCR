@@ -1,2 +1,2 @@
-# OSR
-Projeto em Python de OSR utilizando o ChatGPT.
+# OCR
+Projeto em Python de OCR utilizando o ChatGPT.
