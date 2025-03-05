@@ -31,3 +31,23 @@ def create_thread():
         str: O ID da thread.
     """
     return client.beta.threads.create().id
+
+def send_message(thread_id:str,image_id:str):
+    """
+    Envia uma mensagem para o OpenAI.
+    Args:
+        thread_id (str): O ID da thread.
+        image_id (str): O ID da imagem.
+    """
+    return client.beta.threads.messages.create(
+        thread_id=thread_id,
+        role="user",
+        content= [
+            {
+                type:"image_file",
+                "image_file":{
+                    "file_id":image_id
+                }
+            }
+        ]
+    )
