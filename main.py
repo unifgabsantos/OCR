@@ -71,3 +71,17 @@ def get_messages(thread_id:str)->dict:
     response = client.beta.threads.messages.list(thread_id=thread_id).data
 
     return loads(response[0].content[0].text.value)
+
+def main():
+    """
+    Função principal.
+    """
+
+    image_id = upload_image("image.jpg") # Envia a imagem para o OpenAI e pega o ID da imagem
+    thread_id = create_thread() # Cria uma nova thread e pega o ID da thread
+    send_message(thread_id,image_id) # Envia a mensagem para o OpenAI
+    run_thread(assistant_id,thread_id) # Executa a thread
+    response = get_messages(thread_id) # Pega a resposta do GenAI
+    print(response) # Mostra a resposta
+
+main() # Chama a função principal
