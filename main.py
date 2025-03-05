@@ -51,3 +51,12 @@ def send_message(thread_id:str,image_id:str):
             }
         ]
     )
+
+def run_thread(assistant_id:str,thread_id:str):
+    """
+    Executa a thread.
+    Args:
+        thread_id (str): O ID da thread.
+    """
+    client.beta.threads.runs.create_and_poll(assistant_id=assistant_id,thread_id=thread_id)
+
