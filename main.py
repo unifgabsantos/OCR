@@ -60,3 +60,14 @@ def run_thread(assistant_id:str,thread_id:str):
     """
     client.beta.threads.runs.create_and_poll(assistant_id=assistant_id,thread_id=thread_id)
 
+def get_messages(thread_id:str)->dict:
+    """
+    Pega a responda do GenAI pela thread.
+    Args:
+        thread_id (str): O ID da thread.
+    Returns:
+        dict: A resposta.  
+    """
+    response = client.beta.threads.messages.list(thread_id=thread_id).data
+
+    return loads(response[0].content[0].text.value)
