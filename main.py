@@ -44,7 +44,7 @@ def send_message(thread_id:str,image_id:str):
         role="user",
         content= [
             {
-                type:"image_file",
+                "type":"image_file",
                 "image_file":{
                     "file_id":image_id
                 }
